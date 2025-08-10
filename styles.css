@@ -44,6 +44,7 @@ body {
     justify-content: end;
     align-items: center;
     font-size: 3em;
+    overflow: hidden;
 }
 
 #display-text {
