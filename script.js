@@ -14,10 +14,6 @@ function divide(a, b) {
     return a / b;
 }
 
-let a = 0;
-let b = 0;
-let operator = null;
-
 function operate(operator, a, b) {
     
     if (operator === "add") {
@@ -36,3 +32,31 @@ function operate(operator, a, b) {
         console.log("There appears to have been an error.")
     }
 }
+
+let a = 0;
+let b = 0;
+let currentEntry = "";
+let operator = null;
+
+let firstNumSelected = false;
+let secondNumSelected = false;
+
+const numButtons = document.querySelectorAll(".num-btn");
+const operatorButtons = document.querySelectorAll(".operator-btn");
+const displayText = document.querySelector("#display-text");
+
+//Populate display
+numButtons.forEach(button => {
+    button.addEventListener("click", (event) => {
+        if (currentEntry === "0") {
+            currentEntry = event.target.value;
+        displayText.textContent = currentEntry;
+        }
+        else {
+            currentEntry += event.target.value;
+            displayText.textContent = currentEntry;    
+        }
+        
+    })
+})
+
