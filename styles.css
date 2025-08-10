@@ -2,8 +2,52 @@
     box-sizing: border-box;
 }
 
+body {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
 #calc-container {
-    width: 80%;
+    width: 50vw;
+    height: 50vh;
+    border: 5px solid black;
+
+    display: flex;
+    flex-direction: column;
+}
+
+#calc-screen-area {
+   border: 2px solid red;
+   background-color: rgb(255, 255, 255);
+   flex: 1 1 20%;
+   display: flex;
+}
+
+#calc-screen {
+    width: 90%;
+    height: 50%;
+    background-color: rgb(255, 253, 253);
+    border: 1px solid black;
     margin: auto;
-    border: 2px solid black;
+    display: flex;
+    justify-content: end;
+    align-items: end;
+    font-size: 3em;
+}
+
+#button-area {
+     border: 2px solid green;
+     padding: 20px;
+     background-color: rgb(255, 255, 255);
+     flex: 1 1 80%;
+     display:  flex;
+     flex-wrap: wrap;
+}
+button {
+    width: 25%;
+
 }
