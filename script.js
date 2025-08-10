@@ -38,6 +38,8 @@ let b = null;
 let currentEntry = "";
 let operator = null;
 
+const allButtons = document.querySelectorAll("button");
+const clickSound =document.querySelector("#clickSound");
 
 const numButtons = document.querySelectorAll(".num-btn");
 const operatorButtons = document.querySelectorAll(".operator-btn");
@@ -106,3 +108,10 @@ clearBtn.addEventListener("click", (event) => {
     displayText.textContent = "0";
     currentEntry = "0";
 } )
+//Add sound effect
+allButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        clickSound.currentTime = 0;
+        clickSound.play();
+    })
+})
