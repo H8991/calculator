@@ -33,13 +33,11 @@ function operate(operator, a, b) {
     }
 }
 
-let a = 0;
-let b = 0;
+let a = null;
+let b = null;
 let currentEntry = "";
 let operator = null;
 
-let firstNumSelected = false;
-let secondNumSelected = false;
 
 const numButtons = document.querySelectorAll(".num-btn");
 const operatorButtons = document.querySelectorAll(".operator-btn");
@@ -65,37 +63,35 @@ numButtons.forEach(button => {
 operatorButtons.forEach(button => {
     button.addEventListener("click", (event) => {
 
-        if (firstNumSelected === false) {
+        if (a === null) {
             //Assign a variable
             a = Number(currentEntry);
-            console.log(a);
-            //FirstNumSelected - yes
-            firstNumSelected = true;
+            console.log(`var a = ${a}`);
             //Add operator symbol to screen
             currentEntry += event.target.value;
-            displayText.textContent = currentEntry;
             //store operator variable
-            operator = currentEntry[currentEntry.length-1];
-            console.log(operator);            
+            operator = event.target.value;
+            displayText.textContent = currentEntry;
             //remove operator sign from currentEntry
             currentEntry = "0";
         }
-        if (firstNumSelected === true) {
+        else {
             //assign b variable
             b = Number(currentEntry);
-            console.log(b);
-            secondNumSelected = true;    
-            
-        }   
-    })
+            a = operate(operator, a, b);
+            operator = event.target.value;
+            displayText.textContent = a;
+            currentEntry = "";
+        }
+    }
+    )
 })
 
 equalsBtn.addEventListener("click", (event) => {
     b = Number(currentEntry);
     
-    if (firstNumSelected ===true && secondNumSelected===true) {
+    if (a !== null && b!== null) {
         result = operate(operator, a, b);
-        console.log(result);
         displayText.textContent = result;
     }
     else {
@@ -104,11 +100,9 @@ equalsBtn.addEventListener("click", (event) => {
 })
 
 clearBtn.addEventListener("click", (event) => {
-    a = "0";
-    b = "0";
+    a = null;
+    b = null;
     operator = null;
-    firstNumSelected = false;
-    secondNumSelected = false;
     displayText.textContent = "0";
     currentEntry = "0";
 } )
