@@ -44,6 +44,7 @@ let secondNumSelected = false;
 const numButtons = document.querySelectorAll(".num-btn");
 const operatorButtons = document.querySelectorAll(".operator-btn");
 const displayText = document.querySelector("#display-text");
+const clearBtn = document.querySelector(".clear-btn");
 
 //Populate display
 numButtons.forEach(button => {
@@ -86,4 +87,12 @@ operatorButtons.forEach(button => {
         }   
     })
 })
-
+clearBtn.addEventListener("click", (event) => {
+    a = "0";
+    b = "0";
+    operator = null;
+    firstNumSelected = false;
+    secondNumSelected = false;
+    displayText.textContent = "0";
+    currentEntry = "0";
+} )
