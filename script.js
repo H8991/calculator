@@ -17,3 +17,22 @@ function divide(a, b) {
 let a = 0;
 let b = 0;
 let operator = null;
+
+function operate(operator, a, b) {
+    
+    if (operator === "add") {
+        return add(a, b);
+    }
+    else if (operator === "subtract") {
+        return subtract(a, b);
+    }
+    else if (operator === "multiply") {
+        return multiply(a, b);
+    }
+    else if (operator === "divide") {
+        return divide(a, b);
+    }
+    else {
+        console.log("There appears to have been an error.")
+    }
+}
