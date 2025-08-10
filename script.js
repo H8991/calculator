@@ -112,6 +112,7 @@ clearBtn.addEventListener("click", (event) => {
 allButtons.forEach(button => {
     button.addEventListener("click", () => {
         clickSound.currentTime = 0;
+        clickSound.load();
         clickSound.play();
     })
 })
