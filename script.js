@@ -16,16 +16,16 @@ function divide(a, b) {
 
 function operate(operator, a, b) {
     
-    if (operator === "add") {
+    if (operator === "+") {
         return add(a, b);
     }
-    else if (operator === "subtract") {
+    else if (operator === "-") {
         return subtract(a, b);
     }
-    else if (operator === "multiply") {
+    else if (operator === "*") {
         return multiply(a, b);
     }
-    else if (operator === "divide") {
+    else if (operator === "/") {
         return divide(a, b);
     }
     else {
@@ -57,6 +57,33 @@ numButtons.forEach(button => {
             displayText.textContent = currentEntry;    
         }
         
+    })
+})
+
+operatorButtons.forEach(button => {
+    button.addEventListener("click", (event) => {
+
+        if (firstNumSelected === false) {
+            //Assign a variable
+            a = Number(currentEntry);
+            console.log(a);
+            //FirstNumSelected - yes
+            firstNumSelected = true;
+            //Add operator symbol to screen
+            currentEntry += event.target.value;
+            displayText.textContent = currentEntry;
+            //store operator variable
+            operator = currentEntry[currentEntry.length-1];
+            console.log(operator);            
+            //remove operator sign from currentEntry
+            currentEntry = "0";
+        }
+        if (firstNumSelected === true) {
+            //assign b variable
+            b = Number(currentEntry);
+            console.log(b);
+            secondNumSelected = true;
+        }   
     })
 })
 
