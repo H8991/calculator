@@ -45,6 +45,7 @@ const numButtons = document.querySelectorAll(".num-btn");
 const operatorButtons = document.querySelectorAll(".operator-btn");
 const displayText = document.querySelector("#display-text");
 const clearBtn = document.querySelector(".clear-btn");
+const equalsBtn = document.querySelector(".equals-btn");
 
 //Populate display
 numButtons.forEach(button => {
@@ -83,10 +84,25 @@ operatorButtons.forEach(button => {
             //assign b variable
             b = Number(currentEntry);
             console.log(b);
-            secondNumSelected = true;
+            secondNumSelected = true;    
+            
         }   
     })
 })
+
+equalsBtn.addEventListener("click", (event) => {
+    b = Number(currentEntry);
+    
+    if (firstNumSelected ===true && secondNumSelected===true) {
+        result = operate(operator, a, b);
+        console.log(result);
+        displayText.textContent = result;
+    }
+    else {
+        console.log("Something isn't right");
+    }
+})
+
 clearBtn.addEventListener("click", (event) => {
     a = "0";
     b = "0";
